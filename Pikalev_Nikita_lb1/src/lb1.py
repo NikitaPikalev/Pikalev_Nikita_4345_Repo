@@ -82,7 +82,7 @@ def solve_with_backtracking(N):
                 squares.append((N//2+1, N//2+1, size))
                 print(f"Размещаем в клетке {N//2+1, N//2+1} квадрат размером {size}")
 
-        if N % 2 == 1 and N > 1 and N != 9 and N != 15:
+        if N % 2 != 0 and N % 3 != 0:
             if can_place(0, 0, N//2 + 1):
                 big_size = N//2 + 1
                 small_size = N//2
@@ -99,7 +99,7 @@ def solve_with_backtracking(N):
                 squares.append((big_size+1, 1, small_size))
                 print(f"Размещаем в клетке {big_size+1, 1} квадрат размером {big_size}")
 
-        if N == 9 or N == 15:
+        if N % 3 == 0:
             if can_place(0, 0, N//2 + 1):
                 small_size = N//3
                 big_size = small_size * 2
